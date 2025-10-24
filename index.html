@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clean 3 Homes</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom, #f0f6ff, #ffffff);
+      color: #333;
+    }
+    header {
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+    header h1 {
+      color: #1e40af;
+      margin: 0;
+    }
+    nav button {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      margin-left: 1rem;
+      cursor: pointer;
+      color: #333;
+    }
+    nav button.active, nav button:hover {
+      color: #1e40af;
+      font-weight: 600;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      color: #1e3a8a;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      color: #1e40af;
+      margin-bottom: 0.5rem;
+    }
+    .contact-info p {
+      margin: 0.5rem 0;
+      color: #444;
+    }
+    form {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 2rem;
+      text-align: left;
+    }
+    input, textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    footer {
+      background: #1e40af;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Clean 3 Homes</h1>
+    <nav>
+      <button id="homeBtn" class="active">Home</button>
+      <button id="contactBtn">Contact</button>
+    </nav>
+  </header>
+
+  <main id="content"></main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Clean 3 Homes. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const homeBtn = document.getElementById('homeBtn');
+    const contactBtn = document.getElementById('contactBtn');
+    const content = document.getElementById('content');
+    const yearSpan = document.getElementById('year');
+    yearSpan.textContent = new Date().getFullYear();
+
+    function loadHome() {
+      homeBtn.classList.add('active');
+      contactBtn.classList.remove('active');
+      content.innerHTML = `
+        <section class="hero">
+          <h2>Professional Cleaning for Every Home</h2>
+          <p>At <strong>Clean 3 Homes</strong>, we bring sparkle and freshness to your space. Our professional cleaning team ensures your home, office, or rental property shines every time.</p>
+          <button class="btn-primary" onclick="loadContact()">Get a Free Quote</button>
+        </section>
+        <section class="services">
+          <div class="card">
+            <h3>Residential Cleaning</h3>
+            <p>Enjoy spotless results with our reliable and eco-friendly home cleaning services.</p>
+          </div>
+          <div class="card">
+            <h3>Office Cleaning</h3>
+            <p>We make your workspace shine and create a healthy environment for productivity.</p>
+          </div>
+          <div class="card">
+            <h3>Move-in / Move-out</h3>
+            <p>Stress-free transitions with a thorough clean before or after your move.</p>
+          </div>
+        </section>
+      `;
+    }
+
+    function loadContact() {
+      contactBtn.classList.add('active');
+      homeBtn.classList.remove('active');
+      content.innerHTML = `
+        <section>
+          <h2 style="color:#1e3a8a; font-size:2rem;">Contact Us</h2>
+          <p style="color:#555; margin-bottom:1.5rem;">We’d love to hear from you! Get in touch for quotes, bookings, or questions.</p>
+          <div class="contact-info">
+            <p><strong>Email:</strong> info@clean3homes.com</p>
+            <p><strong>Phone:</strong> (555) 123-4567</p>
+            <p><strong>Location:</strong> San Francisco Bay Area, CA</p>
+          </div>
+          <form>
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea rows="4" placeholder="Your Message" required></textarea>
+            <button class="btn-primary" type="submit">Send Message</button>
+          </form>
+        </section>
+      `;
+    }
+
+    homeBtn.addEventListener('click', loadHome);
+    contactBtn.addEventListener('click', loadContact);
+
+    loadHome();
+  </script>
+</body>
+</html>
