@@ -6,7 +6,7 @@ return(
 <header className="navbar">
 
 <div className="logo">
-<FaBroom/> Clean3Houses
+<img width={"120px"} src="/logo2.png" alt="Clean3Homes Logo" /> Clean3Homes
 </div>
 
 <nav>

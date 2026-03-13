@@ -5,6 +5,8 @@ import Reviews from "../components/Reviews";
 import QuoteCalculator from "../components/QuoteCalculator";
 import BookingCalendar from "../components/BookingCalendar";
 import ContactForm from "../components/ContactForm";
+import AboutUs from "../components/AboutUs";
+import AfterQuote from "../components/AfterQuote";
 
 export default function Home() {
 
@@ -20,7 +22,11 @@ export default function Home() {
 
       <Reviews />
 
+      <AboutUs />
+
       <QuoteCalculator />
+
+      <AfterQuote />
 
       <BookingCalendar />
 

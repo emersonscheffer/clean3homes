@@ -1,68 +1,65 @@
-import { useState } from "react"
+import { useState } from "react";
 
-export default function QuoteCalculator(){
+export default function QuoteCalculator() {
+  const [bedrooms, setBedrooms] = useState(1);
+  const [bathrooms, setBathrooms] = useState(1);
+  const [pets, setPets] = useState(false);
+  const [type, setType] = useState("regular");
+  const [frequency, setFrequency] = useState("once");
 
-const [bedrooms,setBedrooms]=useState(1)
-const [bathrooms,setBathrooms]=useState(1)
-const [pets,setPets]=useState(false)
-const [type,setType]=useState("regular")
-const [frequency,setFrequency]=useState("once")
+  function calculate() {
+    let price = 150 + (bedrooms - 1 + (bathrooms - 1)) * 20;
 
-function calculate(){
+    if (pets) price += 20;
+    if (type === "deep") price += 60;
+    if (type === "move") price += 80;
 
-let price = 120 + ((bedrooms-1)+(bathrooms-1))*20
+    if (frequency === "monthly") price *= 0.95;
+    if (frequency === "biweekly") price *= 0.9;
+    if (frequency === "weekly") price *= 0.85;
 
-if(pets) price += 20
-if(type==="deep") price+=60
-if(type==="move") price+=80
+    return Math.round(price);
+  }
 
-if(frequency==="monthly") price*=0.95
-if(frequency==="biweekly") price*=0.9
-if(frequency==="weekly") price*=0.85
+  return (
+    <section id="quote">
+      <h2>Instant Quote</h2>
 
-return Math.round(price)
+      <div className="quoteBox">
+        <label>Bedrooms</label>
+        <select onChange={(e) => setBedrooms(e.target.value)}>
+          {[1, 2, 3, 4, 5, 6, 7].map((n) => (
+            <option key={n}>{n}</option>
+          ))}
+        </select>
 
-}
+        <label>Bathrooms</label>
+        <select onChange={(e) => setBathrooms(e.target.value)}>
+          {[1, 2, 3, 4, 5, 6, 7].map((n) => (
+            <option key={n}>{n}</option>
+          ))}
+        </select>
 
-return(
+        <label> Pets</label>
+        <input type="checkbox" onChange={(e) => setPets(e.target.checked)} />
 
-<section id="quote">
+        <label>Cleaning Type</label>
+        <select onChange={(e) => setType(e.target.value)}>
+          <option value="regular">Regular</option>
+          <option value="deep">Deep Cleaning</option>
+          <option value="move">Move Out</option>
+        </select>
 
-<h2>Instant Quote</h2>
+        <label>Frequency</label>
+        <select onChange={(e) => setFrequency(e.target.value)}>
+          <option value="once">One Time</option>
+          <option value="monthly">Monthly</option>
+          <option value="biweekly">Biweekly</option>
+          <option value="weekly">Weekly</option>
+        </select>
 
-<div className="quoteBox">
-
-<select onChange={e=>setBedrooms(e.target.value)}>
-{[1,2,3,4,5,6,7].map(n=><option key={n}>{n}</option>)}
-</select>
-
-<select onChange={e=>setBathrooms(e.target.value)}>
-{[1,2,3,4,5,6,7].map(n=><option key={n}>{n}</option>)}
-</select>
-
-<label>
-<input type="checkbox" onChange={e=>setPets(e.target.checked)}/>
-Pets
-</label>
-
-<select onChange={e=>setType(e.target.value)}>
-<option value="regular">Regular</option>
-<option value="deep">Deep Cleaning</option>
-<option value="move">Move Out</option>
-</select>
-
-<select onChange={e=>setFrequency(e.target.value)}>
-<option value="once">One Time</option>
-<option value="monthly">Monthly</option>
-<option value="biweekly">Biweekly</option>
-<option value="weekly">Weekly</option>
-</select>
-
-<h3>${calculate()}</h3>
-
-</div>
-
-</section>
-
-)
+        <h3>${calculate()}</h3>
+      </div>
+    </section>
+  );
 }

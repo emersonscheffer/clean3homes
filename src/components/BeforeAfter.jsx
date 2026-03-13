@@ -12,14 +12,14 @@ return(
 
 <div className="slider">
 
-<img src="/after.jpg"/>
+<img src="/after2.jpg"/>
 
 <div
 className="before"
 style={{width:`${pos}%`}}
 >
 
-<img src="/before.jpg"/>
+<img src="/before2.jpg"/>
 
 </div>
 

@@ -3,7 +3,7 @@ export default function Reviews(){
 const reviews = [
 {
 name:"Sarah M",
-text:"Clean3Houses did an amazing job. My house has never looked this clean. Very professional and reliable!"
+text:"Clean3Homes did an amazing job. My house has never looked this clean. Very professional and reliable!"
 },
 {
 name:"David R",

@@ -16,7 +16,7 @@ Premium Home Cleaning
 
 </motion.h1>
 
-<p>Professional • Reliable • Spotless</p>
+<p>Trust • Quality • Care</p>
 
 <a href="#quote" className="cta">
 Get Instant Quote
