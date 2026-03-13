@@ -9,8 +9,8 @@ return(
 <div className="aboutImage">
 
 <img 
-src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f"
-alt="Cleaning team"
+src="/aboutUs.jpg"
+alt="About Us"
 />
 
 </div>

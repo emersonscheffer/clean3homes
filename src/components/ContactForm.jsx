@@ -1,37 +1,25 @@
-import emailjs from "@emailjs/browser"
+import emailjs from "@emailjs/browser";
 
-export default function ContactForm(){
+export default function ContactForm() {
+  function send(e) {
+    e.preventDefault();
 
-function send(e){
+    emailjs.sendForm("serviceID", "templateID", e.target, "publicKey");
 
-e.preventDefault()
+    alert("Message sent!");
+  }
 
-emailjs.sendForm(
-"serviceID",
-"templateID",
-e.target,
-"publicKey"
-)
+  return (
+    <form onSubmit={send} className="contact">
+      <input name="name" placeholder="Full Name" />
 
-alert("Message sent!")
+      <input name="phone" placeholder="Phone" />
 
-}
+      <input name="address" placeholder="Address" />
 
-return(
+      <textarea name="message" placeholder="Request estimate" />
 
-<form onSubmit={send} className="contact">
-
-<input name="name" placeholder="Full Name"/>
-
-<input name="phone" placeholder="Phone"/>
-
-<input name="address" placeholder="Address"/>
-
-<textarea name="message" placeholder="Request estimate"/>
-
-<button>Send</button>
-
-</form>
-
-)
+      <button>Send</button>
+    </form>
+  );
 }

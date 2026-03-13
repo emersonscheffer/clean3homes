@@ -5,7 +5,7 @@ export default function Navbar() {
     <header className="navbar">
       <div className="logo">
         <img width={"110px"} src="/logo3.png" alt="Clean3Homes Logo" />{" "}
-        Clean3Homes
+        Clean3Homes <span style={{"color":"#13b829"}}>510 815 3754</span>
       </div>
 
       <nav>

@@ -8,7 +8,7 @@ export default function QuoteCalculator() {
   const [frequency, setFrequency] = useState("once");
 
   function calculate() {
-    let price = 150 + (bedrooms - 1 + (bathrooms - 1)) * 20;
+    let price = 170 + (bedrooms - 1 + (bathrooms - 1)) * 20;
 
     if (pets) price += 20;
     if (type === "deep") price += 60;

@@ -7,6 +7,7 @@ import BookingCalendar from "../components/BookingCalendar";
 import ContactForm from "../components/ContactForm";
 import AboutUs from "../components/AboutUs";
 import AfterQuote from "../components/AfterQuote";
+import ContactUs from "../components/ContactUs";
 
 export default function Home() {
 
@@ -30,7 +31,9 @@ export default function Home() {
 
       <BookingCalendar />
 
-      <ContactForm />
+      {/* <ContactForm /> */}
+
+      <ContactUs />
 
     </div>
 
