@@ -310,6 +310,10 @@ z-index:2;
 text-align:center;
 }
 
+.footer img{
+box-shadow: #0a4d34 0px 0px 20px;
+}
+
 /* RESPONSIVE */
 
 @media (max-width:800px){
