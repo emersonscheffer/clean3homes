@@ -1,5 +1,9 @@
 /* GLOBAL */
 
+html{
+scroll-behavior:smooth;
+}
+
 *{
 box-sizing:border-box;
 }
@@ -329,6 +333,297 @@ font-size:32px;
 .navbar{
 flex-direction:column;
 gap:10px;
+}
+
+}
+
+/* FLOATING QUOTE BUTTON */
+
+.floatingQuote{
+position:fixed;
+bottom:25px;
+right:25px;
+background:linear-gradient(135deg,#1aa3d9,#38d39f);
+color:white;
+border:none;
+padding:14px 20px;
+border-radius:50px;
+font-size:16px;
+font-weight:bold;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+cursor:pointer;
+z-index:999;
+transition:all 0.3s ease;
+}
+
+.floatingQuote:hover{
+transform:translateY(-3px) scale(1.05);
+box-shadow:0 12px 25px rgba(0,0,0,0.25);
+}
+
+/* FLOATING BUTTON (PREMIUM) */
+
+.floatingQuoteBtn{
+position:fixed;
+bottom:25px;
+right:25px;
+background:linear-gradient(135deg,#1aa3d9,#38d39f);
+color:white;
+padding:14px 22px;
+border-radius:50px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+z-index:1000;
+transition:all 0.3s ease;
+
+/* pulse animation */
+animation:pulse 2s infinite;
+}
+
+.floatingQuoteBtn:hover{
+transform:scale(1.08);
+}
+
+/* stop pulse when open */
+.floatingQuoteBtn.open{
+animation:none;
+}
+
+/* PULSE EFFECT */
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(56,211,159,0.6);}
+70%{box-shadow:0 0 0 15px rgba(56,211,159,0);}
+100%{box-shadow:0 0 0 0 rgba(56,211,159,0);}
+}
+
+/* WIDGET PANEL */
+
+.quoteWidget{
+position:fixed;
+bottom:90px;
+right:25px;
+width:280px;
+background:white;
+padding:20px;
+border-radius:14px;
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+opacity:0;
+transform:translateY(20px) scale(0.95);
+pointer-events:none;
+transition:all 0.3s ease;
+z-index:999;
+}
+
+.quoteWidget.show{
+opacity:1;
+transform:translateY(0) scale(1);
+pointer-events:auto;
+}
+
+.quoteWidget h3{
+margin-top:0;
+color:#1aa3d9;
+text-align:center;
+}
+
+.quoteWidget label{
+font-size:14px;
+margin-top:10px;
+display:block;
+}
+
+.quoteWidget select{
+width:100%;
+padding:8px;
+margin-top:5px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+.priceBox{
+margin-top:15px;
+font-size:28px;
+font-weight:bold;
+text-align:center;
+color:#38d39f;
+}
+
+.quoteWidget button{
+margin-top:15px;
+width:100%;
+padding:10px;
+background:#1aa3d9;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+.quoteWidget button:hover{
+background:#1287b3;
+}
+
+/* NAVBAR UPGRADE */
+
+.navbar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 30px;
+background:white;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+/* LOGO */
+
+.logoContainer{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logoContainer img{
+width:80px;
+}
+
+.logoText{
+display:flex;
+flex-direction:column;
+}
+
+.brandName{
+font-weight:bold;
+color:#1aa3d9;
+}
+
+.phone{
+color:#13b829;
+font-weight:bold;
+font-size:14px;
+text-decoration:none;
+}
+
+/* NAV LINKS */
+
+.navLinks{
+display:flex;
+gap:25px;
+}
+
+.navLinks a{
+color:#333;
+font-weight:500;
+}
+
+.navLinks a:hover{
+color:#1aa3d9;
+}
+
+/* EMAIL */
+
+.email{
+font-size:14px;
+color:#555;
+text-decoration:none;
+}
+
+/* HAMBURGER */
+
+.hamburger{
+display:none;
+font-size:26px;
+cursor:pointer;
+}
+
+/* MOBILE MENU */
+
+.mobileMenu{
+position:fixed;
+top:0;
+right:-100%;
+width:75%;
+height:100vh;
+background:white;
+box-shadow:-5px 0 20px rgba(0,0,0,0.2);
+padding:20px;
+transition:0.3s;
+z-index:2000;
+display:flex;
+flex-direction:column;
+}
+
+.mobileMenu.show{
+right:0;
+}
+
+.closeBtn{
+font-size:24px;
+align-self:flex-end;
+cursor:pointer;
+}
+
+/* MOBILE HEADER */
+
+.mobileHeader{
+text-align:center;
+margin-top:20px;
+}
+
+.mobileHeader img{
+width:100px;
+margin-bottom:10px;
+}
+
+.mobileHeader h2{
+margin:5px 0;
+color:#1aa3d9;
+}
+
+.mobileHeader a{
+color:#13b829;
+font-weight:bold;
+text-decoration:none;
+}
+
+/* MOBILE LINKS */
+
+.mobileLinks{
+display:flex;
+flex-direction:column;
+margin-top:30px;
+gap:20px;
+text-align:center;
+}
+
+.mobileLinks a{
+font-size:18px;
+color:#333;
+}
+
+/* RESPONSIVE */
+
+@media (max-width:900px){
+
+.navLinks{
+display:none;
+}
+
+.email{
+display:none;
+}
+
+.hamburger{
+display:block;
+}
+
+.logoContainer{
+margin:auto;
+flex-direction:column;
+align-items:center;
 }
 
 }
